@@ -1,6 +1,6 @@
 import axios, {AxiosInstance} from "axios";
 import { ICredentials } from "../interfaces/ICredentials";
-import { getConfig } from "./EnvCredentials"; // You can use your own credentials provider
+import { getConfig } from "./ClearCredentials"; // You can use your own credentials provider
 
 axios.defaults.withCredentials = true;
 
@@ -14,7 +14,7 @@ function createClient() {
             // Replace '?' by ';${adeCookie}?' in the url
             const regex = /<form id="fm1" class="fm-v clearfix" action="(.+?)" method="post">/g;
 
-            const loginUrl = "https://cas.bordeaux-inp.fr" + regex.exec(response.data)[1];
+            const loginUrl = "https://cas.bordeaux-inp.fr" + regex.exec(response.data)![1];
 
             const connectionPayload = {
                 username: config.getUsername(),
