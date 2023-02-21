@@ -139,14 +139,14 @@ function _processICALResult(ical: CalendarResponse): ADEEvent[] {
         });
 }
 
-async function createClient(): Promise<IADEClient> {
+async function createClient(login: string, password: string): Promise<IADEClient> {
     
     // Handle cookies for CAS authentication
     const jar = new CookieJar();
     const axiosClient = wrapper(axios.create({ jar }));
 
     // Create CAS client
-    const casClient = createCASClient();
+    const casClient = createCASClient(login, password);
 
     // Generate key for ADE communication
     const timestamp = getTimestamp();

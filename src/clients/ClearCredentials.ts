@@ -1,28 +1,14 @@
 import { ICredentials } from "../interfaces/ICredentials";
 
-let getConfig = (): ICredentials => {
+function getConfig(login: string, password: string): ICredentials {
 	return {
 		getUsername() {
-			return "";
+			return login;
 		},
 		getPassword() {
-			return "";
+			return password;
 		}
 	}
 }
 
-//Stinky...
-function createConfig(login: string, password: string){
-	getConfig = () => {
-		return {
-			getUsername() {
-				return login
-			},
-			getPassword() {
-				return password
-			},
-		}
-	}
-}
-
-export { getConfig, createConfig }
+export { getConfig }

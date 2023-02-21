@@ -1,12 +1,12 @@
-import axios, {AxiosInstance} from "axios";
+import axios, { AxiosInstance } from "axios";
 import { ICredentials } from "../interfaces/ICredentials";
 import { getConfig } from "./ClearCredentials"; // You can use your own credentials provider
 
 axios.defaults.withCredentials = true;
 
-const config: ICredentials = getConfig();
 
-function createClient() {
+function createClient(login: string, password: string) {
+    const config: ICredentials = getConfig(login, password);
     return {
         async connect(service: string, client: AxiosInstance) {
             const response = await client.get(service);
