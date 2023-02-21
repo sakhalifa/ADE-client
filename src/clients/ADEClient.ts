@@ -8,7 +8,7 @@ import {createClient as createCASClient} from "./CASClient";
 import { wrapper } from "axios-cookiejar-support";
 import { CookieJar } from "tough-cookie";
 import { IGWTConfig } from "../interfaces/IGWTConfig";
-import { getConfig } from "./GWTEnvConfig"; // You can change this
+import { getConfig } from "./INPGWTConfig"; // You can change this
 
 // Load config
 const config: IGWTConfig = getConfig();
